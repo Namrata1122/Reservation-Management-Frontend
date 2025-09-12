@@ -42,10 +42,19 @@ export class RegistrationComponent {
     this.registrationService.registerUser(this.registrationData).subscribe({
       next:(response)=>{
         console.log("User Registered Successfully",response);
+        alert("User Registered Successfully!");
+        this.resetForm();
       },
       error:(err)=>{
         console.log(err);
+        alert("User Registration Failed!");
+        this.resetForm();
       }
     })
+  }
+
+  resetForm(){
+    this.registrationData = {};
+    this.currentStep = 1;
   }
 }
