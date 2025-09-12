@@ -16,6 +16,9 @@ import { CreateReservationComponent } from './components/reservations/create-res
 import { ResourcesComponent } from './components/resources/resources.component';
 import { ResourceListComponent } from './components/resources/resource-list/resource-list.component';
 import { ResourceCreateComponent } from './components/resources/resource-create/resource-create.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { StepOneComponent } from './components/registration/step-one/step-one.component';
+import { StepTwoComponent } from './components/registration/step-two/step-two.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ResourceCreateComponent } from './components/resources/resource-create/
     CreateReservationComponent,
     ResourcesComponent,
     ResourceListComponent,
-    ResourceCreateComponent
+    ResourceCreateComponent,
+    RegistrationComponent,
+    StepOneComponent,
+    StepTwoComponent
   ],
   imports: [
     BrowserModule,
