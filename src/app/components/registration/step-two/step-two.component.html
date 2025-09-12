@@ -1,5 +1,5 @@
 <div class="registraion-form-step-one-container border shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-    <form>
+    <form #stepTwoForm="ngForm">
         <div class="input-box">
             <label for="uname">Username</label>
             <input class="form-control" type="text" placeholder="Username" id="uname" minlength="8" name="username" [(ngModel)]="model.username" required>
@@ -22,7 +22,8 @@
 
         <div class="previous-step d-flex justify-content-center mt-4" (click)="prev.emit()">
             <i class="bi bi-arrow-left-circle-fill display-3 text-primary"></i>
-            <button type="submit" class="btn btn-primary mx-5 py-2" (click)="OnFormSubmitted.emit()">Submit</button>
         </div>
+        <button type="submit" class="btn btn-primary mx-auto py-2 d-block" (click)="OnFormSubmitted.emit()"
+            [disabled]="stepTwoForm.invalid">Register</button>
     </form>
 </div>
