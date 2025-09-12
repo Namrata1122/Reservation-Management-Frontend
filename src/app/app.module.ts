@@ -18,6 +18,9 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { StepOneComponent } from './components/registration/step-one/step-one.component';
 import { StepTwoComponent } from './components/registration/step-two/step-two.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserDashboardComponent } from './components/dashboard/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './components/dashboard/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     ResourceCreateComponent,
     RegistrationComponent,
     StepOneComponent,
-    StepTwoComponent
+    StepTwoComponent,
+    DashboardComponent,
+    UserDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

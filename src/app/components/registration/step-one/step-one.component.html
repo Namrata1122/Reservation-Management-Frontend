@@ -3,6 +3,7 @@
         <div class="input-box d-inline-block">
             <label for="fname">First Name</label>
             <input class="form-control m-1 p-1" type="text" placeholder="Enter your Firstname" id="fname" name="firstname" [(ngModel)]="model.firstname" required>
+            <small *ngIf="">*firstname is a required field!</small>
         </div>
         <div class="input-box d-inline-block">
             <label for="lname">Last Name</label>
@@ -23,5 +24,8 @@
             <option value="trans">Transgender</option>
             <option value="other">Prefer Not to Say</option>
         </select>
+        <div class="next-step d-flex justify-content-center mt-4" (click)="next.emit()">
+            <i class="bi bi-arrow-right-circle-fill display-3 text-primary"></i>
+        </div>
     </form>
 </div>

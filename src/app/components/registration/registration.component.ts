@@ -23,6 +23,15 @@ export class RegistrationComponent {
     password:''
   }
 
+  nextStep(){
+    this.currentStep++;
+  }
+  prevStep(){
+    if(this.currentStep>1){
+      this.currentStep--;
+    }
+  }
+
   GoToStep(step:number){
     this.currentStep = step;
   }

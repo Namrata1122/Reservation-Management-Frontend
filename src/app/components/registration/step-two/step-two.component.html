@@ -19,5 +19,10 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions.</label>
         </div>
+
+        <div class="previous-step d-flex justify-content-center mt-4" (click)="prev.emit()">
+            <i class="bi bi-arrow-left-circle-fill display-3 text-primary"></i>
+            <button type="submit" class="btn btn-primary mx-5 py-2" (click)="OnFormSubmitted.emit()">Submit</button>
+        </div>
     </form>
 </div>

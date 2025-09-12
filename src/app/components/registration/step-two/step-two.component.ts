@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-step-two',
@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class StepTwoComponent {
   @Input() model:any;
   confirmPassword:string = '';
+
+  @Output() prev = new EventEmitter<void>();
+  @Output() OnFormSubmitted = new EventEmitter<void>();
 }
