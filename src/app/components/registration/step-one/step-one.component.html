@@ -1,37 +1,27 @@
 <div class="registraion-form-step-one-container border shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-    <form >
+    <form>
         <div class="input-box d-inline-block">
-            <label for="firstname">First Name</label>
-            <input class="form-control" type="text" placeholder="Enter your Firstname" required>
+            <label for="fname">First Name</label>
+            <input class="form-control m-1 p-1" type="text" placeholder="Enter your Firstname" id="fname" name="firstname" [(ngModel)]="model.firstname" required>
         </div>
         <div class="input-box d-inline-block">
-            <label for="lastname">Last Name</label>
-            <input class="form-control" type="text" placeholder="Enter your Lastname" required>
+            <label for="lname">Last Name</label>
+            <input class="form-control m-1 p-1" type="text" placeholder="Enter your Lastname" id="lname" name="lastname" [(ngModel)]="model.lastname" required>
         </div>
         <div class="input-box">
-            <label for="email">Email</label>
-            <input class="form-control" type="email" placeholder="Enter your Email" required>
+            <label for="Email">Email</label>
+            <input class="form-control m-1 p-1" type="email" placeholder="Enter your Email" id="Email" name="email" [(ngModel)]="model.email" required>
         </div>
         <div class="input-box">
-            <label for="dob">Date Of Birth</label>
-            <input class="form-control" type="date" placeholder="D.O.B">
+            <label for="DOB">Date Of Birth</label>
+            <input class="form-control m-1 p-1" type="date" placeholder="D.O.B" id="DOB" name="dob" [(ngModel)]="model.dob">
         </div>
-        <div class="gender-box">
-            <h3>Gender</h3>
-            <div class="gender-option">
-                <div class="gender d-inline-block">
-                    <input type="radio" id="check-male" name="gender" checked />
-                    <label for="check-male">male</label>
-                </div>
-                <div class="gender d-inline-block">
-                    <input type="radio" id="check-female" name="gender" />
-                    <label for="check-female">Female</label>
-                </div>
-                <div class="gender d-inline-block">
-                    <input type="radio" id="check-other" name="gender" />
-                    <label for="check-other">prefer not to say</label>
-                </div>
-            </div>
-        </div>
+        <select class="form-control m-1 p-1" name="gender" id="genderinfo" [(ngModel)]="model.gender">
+            <option value="" disabled>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="trans">Transgender</option>
+            <option value="other">Prefer Not to Say</option>
+        </select>
     </form>
 </div>

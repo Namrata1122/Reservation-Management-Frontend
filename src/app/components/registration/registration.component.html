@@ -4,7 +4,7 @@
             <label for="personalInfo">
                 <h2>Personal Info</h2>
             </label>
-            <app-step-one></app-step-one>
+            <app-step-one [model]="registrationData"></app-step-one>
             
             <div class="next-step d-flex justify-content-center mt-4" (click)="GoToStep(2)">
                 <i class="bi bi-arrow-right-circle-fill display-3 text-primary"></i>
@@ -15,10 +15,11 @@
             <label for="password">
                 <h2>Login Credentials</h2>
             </label>
-            <app-step-two></app-step-two>
+            <app-step-two [model]="registrationData"></app-step-two>
 
             <div class="previous-step d-flex justify-content-center mt-4" (click)="GoToStep(1)">
                 <i class="bi bi-arrow-left-circle-fill display-3 text-primary"></i>
+                <button type="submit" class="btn btn-primary" (click)="OnSubmitForm()">Submit</button>
             </div>
         </div>
     </form>
