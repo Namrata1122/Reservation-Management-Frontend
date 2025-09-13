@@ -15,12 +15,7 @@ const routes: Routes = [
   {path:'registration',component:RegistrationComponent},
   {path:'resources',component:ResourcesComponent},
   {path:'dashboard',component:DashboardComponent},
-  {
-    path:'userdashboard',
-    component:UserDashboardComponent,
-    canActivate: [AuthGaurdService],
-    data:{expectedRole: 'user'}
-  },
+  {path:'userdashboard',component:UserDashboardComponent,},
   {
     path:'admindashboard',
     component:AdminDashboardComponent,

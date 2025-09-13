@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit():void{
     const user = this.authService.getUserFromToken();
-    console.log('Logged-In User: ',user);
+    console.log('Logged-In User: ',user.role);
     if(user && user.role === 'admin'){
       this.router.navigate(['/admindashboard']);
     }else if(user && user.role === 'user'){

@@ -14,9 +14,6 @@ export class AuthGaurdService implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         const expectedRole = route.data['expectedRole'];
         const user = this.authService.getUserFromToken();
-
-        console.log('Expected Role: ',expectedRole);
-        console.log('User Role: ',user?.role);
         
         if(user && user.role === expectedRole){
             return true;
