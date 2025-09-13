@@ -1,19 +1,19 @@
 import { inject, Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable } from "rxjs";
-import { DashboardService } from "../components/dashboard/dashboard.service";
+import { AuthService } from "./auth.service";
 
 @Injectable({
     providedIn:'root'
 })
 export class AuthGaurdService implements CanActivate{
     constructor(
-        private dashboardService:DashboardService = inject(DashboardService),
+        private authService:AuthService = inject(AuthService),
         private router:Router
     ){}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         const expectedRole = route.data['expectedRole'];
-        const user = this.dashboardService.getUserFromToken();
+        const user = this.authService.getUserFromToken();
 
         console.log('Expected Role: ',expectedRole);
         console.log('User Role: ',user?.role);

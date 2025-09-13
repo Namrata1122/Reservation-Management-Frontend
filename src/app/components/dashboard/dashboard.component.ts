@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { DashboardService } from './dashboard.service';
+import { AuthService } from '../../Services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-  dashboardService:DashboardService = inject(DashboardService);
+  authService:AuthService = inject(AuthService);
   router:Router = inject(Router);
 
   ngOnInit():void{
-    const user = this.dashboardService.getUserFromToken();
+    const user = this.authService.getUserFromToken();
     console.log('Logged-In User: ',user);
     if(user && user.role === 'admin'){
       this.router.navigate(['/admindashboard']);

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent {
     password:''
   }
 
+  authService:AuthService = inject(AuthService)
   loginService:LoginService = inject(LoginService);
   router:Router = inject(Router);
 
@@ -40,7 +42,7 @@ export class LoginComponent {
     this.data = this.loginForm.value;
     this.loginService.LoginUser(this.data).subscribe({
       next:(response)=>{
-        localStorage.setItem('token',response.token);
+        this.authService.login(response.token);
         alert("User LoggedIn Successfully!");
         this.loginForm.reset();
         this.router.navigate(['/dashboard']);
