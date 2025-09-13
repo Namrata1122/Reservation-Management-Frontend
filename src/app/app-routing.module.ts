@@ -6,14 +6,27 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ResourcesComponent } from './components/resources/resources.component';
 import { UserDashboardComponent } from './components/dashboard/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './components/dashboard/admin-dashboard/admin-dashboard.component';
+import { AuthGaurdService } from './Services/authGaurd.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'registration',component:RegistrationComponent},
   {path:'resources',component:ResourcesComponent},
-  {path:'userdashboard',component:UserDashboardComponent},
-  {path:'admindashboard',component:AdminDashboardComponent}
+  {path:'dashboard',component:DashboardComponent},
+  {
+    path:'userdashboard',
+    component:UserDashboardComponent,
+    canActivate: [AuthGaurdService],
+    data:{expectedRole: 'user'}
+  },
+  {
+    path:'admindashboard',
+    component:AdminDashboardComponent,
+    canActivate: [AuthGaurdService],
+    data:{expectedRole: 'admin'}
+  }
 ];
 
 @NgModule({

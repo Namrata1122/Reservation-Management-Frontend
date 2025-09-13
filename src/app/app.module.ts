@@ -17,10 +17,11 @@ import { ResourceCreateComponent } from './components/resources/resource-create/
 import { RegistrationComponent } from './components/registration/registration.component';
 import { StepOneComponent } from './components/registration/step-one/step-one.component';
 import { StepTwoComponent } from './components/registration/step-two/step-two.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserDashboardComponent } from './components/dashboard/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './components/dashboard/admin-dashboard/admin-dashboard.component';
+import { AuthInterceptorService } from './Services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { AdminDashboardComponent } from './components/dashboard/admin-dashboard/
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
