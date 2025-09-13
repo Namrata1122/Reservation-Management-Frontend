@@ -1,22 +1,31 @@
-<div class="login-container">
-    <h2>{{isLoggingMode?'Login':'SignUp'}} Here!</h2>
+<div class="login-container border shadow-sm m-2 rounded p-3">
+    <h2 class="d-flex justify-content-center m-2">Login Here!</h2>
     <div class="auth-form">
-        <form #authForm="ngForm" (ngSubmit)="OnFormSubmitted(authForm)">
-            <div class="form-input">
+        <form #loginForm="ngForm" (ngSubmit)="OnFormSubmitted(loginForm)">
+            <button class="btn btn-secondary" *ngIf="loginUsingEmail" (click)="LoginUsingUsername()">
+                Login with Username</button>
+            <button class="btn btn-secondary" *ngIf="loginUsingUsername" (click)="LoginUsingEmail()">
+                Login with Email</button>
+            <div class="form-input" *ngIf="loginUsingEmail === false">
                 <label for="username">Username</label>
-                <input type="text" placeholder="ENter your Username" name="username" ngModel required>
+                <input type="text" class="form-control m-1 p-1" placeholder="Enter your Username" 
+                name="username" ngModel required>
             </div>
-            <div class="form-input">
+            <div class="form-input" *ngIf="loginUsingUsername === false">
                 <label for="email-address">Email</label>
-                <input type="email" placeholder="Enter your Email" name="email" ngModel required email>
+                <input type="email" class="form-control m-1 p-1" placeholder="Enter your Email" 
+                name="email" ngModel required email>
             </div>
             <div class="form-input">
                 <label for="password">Password</label>
-                <input type="password" placeholder="Enter your password" name="password" ngModel required minlength="6">
+                <input type="password" class="form-control m-1 p-1" placeholder="Enter your password" 
+                name="password" ngModel required minlength="8">
             </div>
-            <button type="submit">{{isLoggingMode?'Login':'Signup'}}</button>
-            <p>{{isLoggingMode?'Do not have an account yet?':'Already have an account?'}}
-                <button class="app-toggle-btn" type="button" (click)="OnSwitchMode()">{{isLoggingMode?'Login':'Register'}} Here</button>
+            <button type="submit" class="btn btn-dark mx-auto my-2 d-block w-100">
+                Login
+            </button>
+            <p>Do not have an account yet?
+                <button class="btn btn-primary " type="button" routerLink="/registration">Register Here</button>
             </p>
         </form>
     </div>

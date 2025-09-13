@@ -23,7 +23,9 @@
         <div class="previous-step d-flex justify-content-center mt-4" (click)="prev.emit()">
             <i class="bi bi-arrow-left-circle-fill display-3 text-primary"></i>
         </div>
-        <button type="submit" class="btn btn-primary mx-auto py-2 d-block" (click)="OnFormSubmitted.emit()"
-            [disabled]="stepTwoForm.invalid">Register</button>
+        <button type="submit" class="btn btn-dark mx-auto my-2 d-block w-100" (click)="OnFormSubmitted.emit()">Register</button>
+        <p>Already have an account?
+            <button class="btn btn-primary " type="button" routerLink="/login">Login Here</button>
+        </p>
     </form>
 </div>
