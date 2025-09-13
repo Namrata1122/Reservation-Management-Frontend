@@ -1,0 +1,15 @@
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+import { map, Observable } from "rxjs";
+
+@Injectable({
+    providedIn:'root'
+})
+export class ResourcesService{
+    http:HttpClient = inject(HttpClient);
+
+    private apiUrl = 'http://localhost:3000/resources';
+    GetResourcesList():Observable<any>{
+        return this.http.get(this.apiUrl);
+    }
+}

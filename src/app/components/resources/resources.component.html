@@ -1,1 +1,22 @@
-<p>resources works!</p>
+<div class="resources-container">
+    <div class="resource-list" *ngIf="resources.length >0">
+        <ul class="list-group list-group-horizontal list-unstyled d-flex flex-wrap flex-grow-1 flex-shrink-1 m-2 p-2 w-auto">
+            <li class="list-group-items m-2 p-2" *ngFor="let resource of resources">
+                <div class="card" style="width:18rem;">
+                    <img src="" class="card-img-top" alt="{{resource.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{resource.name}}</h5>
+                        <p class="card-text">{{resource.description}}</p>
+                        <p class="card-text">Capacity : {{resource.capacity}}</p>
+                        <a href="#"><i class="bi bi-geo-alt"></i>{{resource.location}}</a><br>
+                        <a href="#" class="btn btn-primary">Reserve</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <ng-template *ngIf="resources.length === 0">
+        <p>No Resources Availabale!</p>
+    </ng-template>
+</div>

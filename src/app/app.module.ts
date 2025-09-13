@@ -12,8 +12,6 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { MyReservationsComponent } from './components/reservations/my-reservations/my-reservations.component';
 import { CreateReservationComponent } from './components/reservations/create-reservation/create-reservation.component';
 import { ResourcesComponent } from './components/resources/resources.component';
-import { ResourceListComponent } from './components/resources/resource-list/resource-list.component';
-import { ResourceCreateComponent } from './components/resources/resource-create/resource-create.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { StepOneComponent } from './components/registration/step-one/step-one.component';
 import { StepTwoComponent } from './components/registration/step-two/step-two.component';
@@ -22,6 +20,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserDashboardComponent } from './components/dashboard/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './components/dashboard/admin-dashboard/admin-dashboard.component';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { MyReservationsListComponent } from './components/dashboard/user-dashboard/my-reservations-list/my-reservations-list.component';
+import { UserReservationsListComponent } from './components/dashboard/admin-dashboard/user-reservations-list/user-reservations-list.component';
+import { CreateResourceComponent } from './components/dashboard/admin-dashboard/create-resource/create-resource.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +35,15 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
     MyReservationsComponent,
     CreateReservationComponent,
     ResourcesComponent,
-    ResourceListComponent,
-    ResourceCreateComponent,
     RegistrationComponent,
     StepOneComponent,
     StepTwoComponent,
     DashboardComponent,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    MyReservationsListComponent,
+    UserReservationsListComponent,
+    CreateResourceComponent
   ],
   imports: [
     BrowserModule,
