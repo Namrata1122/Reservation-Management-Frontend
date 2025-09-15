@@ -8,9 +8,6 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { ReservationsComponent } from './components/reservations/reservations.component';
-import { MyReservationsComponent } from './components/reservations/my-reservations/my-reservations.component';
-import { CreateReservationComponent } from './components/reservations/create-reservation/create-reservation.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { StepOneComponent } from './components/registration/step-one/step-one.component';
@@ -23,6 +20,8 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
 import { MyReservationsListComponent } from './components/dashboard/user-dashboard/my-reservations-list/my-reservations-list.component';
 import { UserReservationsListComponent } from './components/dashboard/admin-dashboard/user-reservations-list/user-reservations-list.component';
 import { CreateResourceComponent } from './components/dashboard/admin-dashboard/create-resource/create-resource.component';
+import { DeleteMyReservationComponent } from './components/dashboard/user-dashboard/delete-my-reservation/delete-my-reservation.component';
+import { CreateReservationComponent } from './components/dashboard/user-dashboard/create-reservation/create-reservation.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +30,6 @@ import { CreateResourceComponent } from './components/dashboard/admin-dashboard/
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    ReservationsComponent,
-    MyReservationsComponent,
-    CreateReservationComponent,
     ResourcesComponent,
     RegistrationComponent,
     StepOneComponent,
@@ -43,7 +39,9 @@ import { CreateResourceComponent } from './components/dashboard/admin-dashboard/
     AdminDashboardComponent,
     MyReservationsListComponent,
     UserReservationsListComponent,
-    CreateResourceComponent
+    CreateResourceComponent,
+    DeleteMyReservationComponent,
+    CreateReservationComponent
   ],
   imports: [
     BrowserModule,

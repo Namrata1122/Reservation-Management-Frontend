@@ -1,1 +1,24 @@
-<p>my-reservations-list works!</p>
+<div class="reservations-container m-2 p-2">
+    <h6 *ngIf="myReservations.length === 0">You have not yet made a reservation!</h6>
+    <div class="resource-list" *ngIf="myReservations.length >0">
+        <ul
+            class="list-group list-group-horizontal list-unstyled d-flex flex-wrap flex-grow-1 flex-shrink-1 m-2 p-2 w-auto">
+            <li class="list-group-items m-2 p-2" *ngFor="let reservation of myReservations">
+                <div class="card" style="width:18rem;">
+                    <img src="" class="card-img-top" alt="{{reservation.name}}">
+                    <div class="card-body">
+                        <h5 class="card-text">Check-In at : {{reservation.startTime}}</h5>
+                        <p class="card-text">Check-Out at : {{reservation.endTime}}</p>
+                        <p class="card-text">Capacity : {{reservation.resource.capacity}}</p>
+                        <p class="card-text">Description : {{reservation.resource.description}}</p>
+                        <p class="card-text">Name : {{reservation.resource.name}}</p>
+                        <p class="card-text">Location : {{reservation.resource.location}} 
+                            <a href="#"><i class="bi bi-geo-alt"></i>{{reservation.location}}</a>
+                        </p>
+                        <br>
+                        <a href="#" class="btn btn-dark m-2">Cancel Reservation</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>

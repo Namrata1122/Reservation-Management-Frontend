@@ -1,0 +1,33 @@
+.arrow-btn {
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.arrow-btn i {
+    font-size: 1.5rem;
+}
+
+.arrow-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.cards-container {
+    flex-grow: 1;
+}
+
+.visible-resources {
+    gap: 1rem;
+}
+
+.resources-container {
+    padding: 1rem;
+}

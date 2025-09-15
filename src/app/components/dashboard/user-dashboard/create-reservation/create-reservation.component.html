@@ -1,1 +1,17 @@
-<p>create-reservation works!</p>
+<div class="create-reservation-container">
+    <a href="#" class="close" (click)="OnCloseForm()"></a>
+    <div class="selected-resource-reservation">
+        <form class="form" #reservationform="ngForm" (ngSubmit)="OnFormSubmitted(reservationform)">
+            <h3>Make a reservation Here!</h3>
+            <div class="input-box">
+                <label>Select a start time.</label>
+                <input type="date" class="date form-control" name="startTime" required ngModel>
+            </div>
+            <div class="input-box">
+                <label>Select an end time.</label>
+                <input type="date" class="date form-control" name="endTime" required ngModel>
+            </div>
+            <button type="submit" class="btn btn-dark">Reserve</button>
+        </form>
+    </div>
+</div>

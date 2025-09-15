@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ResourcesService } from './resources.service';
+import { ResourcesService } from '../../Services/resources.service';
 
 @Component({
   selector: 'app-resources',

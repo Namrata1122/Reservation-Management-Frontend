@@ -1,1 +1,28 @@
-<p>user-reservations-list works!</p>
+<div class="user-reservation-list m-4 p-2">
+    <h2>Confirm/Cancel Reservations</h2>
+    <div class="resources-container">
+        <div class="resource-list" *ngIf="reservations.length >0">
+            <ul
+                class="list-group list-group-horizontal list-unstyled d-flex flex-wrap flex-grow-1 flex-shrink-1 m-2 p-2 w-auto">
+                <li class="list-group-items m-2 p-2" *ngFor="let reservation of reservations">
+                    <div class="card" style="width:18rem;">
+                        <img src="" class="card-img-top" alt="{{reservation.name}}">
+                        <div class="card-body">
+                            <p class="card-text">Check-In at :{{reservation.startTime}}</p>
+                            <p class="card-text">Check-Out at :{{reservation.endTime}}</p>
+                            <p class="card-text">Capacity : {{reservation.resource.capacity}}</p>
+                            <p class="card-text">Description : {{reservation.resource.description}}</p>
+                            <p class="card-text">Name : {{reservation.resource.name}}</p>
+                            <p class="card-text">
+                                Location : <a href="#"><i class="bi bi-geo-alt"></i>{{reservation.location}}</a> 
+                                {{reservation.resource.location}}
+                            </p>
+                            <br>
+                            <a href="#" class="btn btn-dark m-2">Confirm Reservation</a>
+                            <a href="#" class="btn btn-dark m-2">Cancel Reservation</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+</div>

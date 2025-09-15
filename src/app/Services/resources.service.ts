@@ -12,4 +12,8 @@ export class ResourcesService{
     GetResourcesList():Observable<any>{
         return this.http.get(this.apiUrl);
     }
+
+    GetAResource(){
+        return this.http.get(this.apiUrl+'/:id');
+    }
 }

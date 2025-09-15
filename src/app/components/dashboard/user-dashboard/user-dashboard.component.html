@@ -1,8 +1,32 @@
 <div class="user-dashboard-container">
     <div class="my-reservations-list-container">
-        <app-create-reservation></app-create-reservation>
+        <h2>Make a Reservation Here!</h2>
+        <div class="resources-container">
+            <div class="visible-resources d-flex align-items-center">
+                <button class="arrow-btn" (click)="prev()"><i class="bi bi-arrow-left-circle-fill"></i></button>
+        
+                <div class="card-container d-flex flex-wrap overflow-auto">
+                    <div *ngFor="let resource of visibleResources" class="card mx-2" style="width: 18rem;">
+                        <img [src]="resource.imageUrl" class="card-img-top" alt="{{resource.name}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{resource.name}}</h5>
+                            <p class="card-text">{{resource.description}}</p>
+                            <p>Capacity: {{resource.capacity}}</p>
+                            <button class="btn btn-primary" (click)="OnReserveClicked(resource)">Reserve</button>
+                            <app-create-reservation [resource]="selectedResource"></app-create-reservation>
+                        </div>
+                    </div>
+                </div>
+        
+                <button class="arrow-btn" (click)="next()"><i class="bi bi-arrow-right-circle-fill"></i></button>
+            </div>
+            <div class="go-to-resources d-flex justify-content-center m-2 p-2">
+                <button class="btn btn-dark" routerLink="/resources">See All Resources</button>
+            </div>
+            </div>
     </div>
     <div class="create-new-reservation-container">
+        <h2>My Reservations</h2>
         <app-my-reservations-list></app-my-reservations-list>
     </div>
 </div>
