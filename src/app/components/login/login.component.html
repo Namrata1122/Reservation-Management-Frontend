@@ -1,4 +1,5 @@
-<div class="login-container border shadow-sm m-2 rounded p-3">
+<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="login-container border shadow-sm m-2 rounded p-3 w-50">
     <h2 class="d-flex justify-content-center m-2">Login Here!</h2>
     <div class="auth-form">
         <form #loginForm="ngForm" (ngSubmit)="OnFormSubmitted(loginForm)">
@@ -25,8 +26,9 @@
                 Login
             </button>
             <p>Do not have an account yet?
-                <button class="btn btn-primary " type="button" routerLink="/registration">Register Here</button>
+                <a routerLink="/registration">Register Here</a>
             </p>
         </form>
     </div>
+</div>
 </div>

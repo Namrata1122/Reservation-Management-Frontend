@@ -43,7 +43,6 @@ export class LoginComponent {
     this.loginService.LoginUser(this.data).subscribe({
       next:(response)=>{
         this.authService.login(response.token);
-        console.log(response.token);
         alert("User LoggedIn Successfully!");
         this.loginForm.reset();
         this.router.navigate(['/dashboard']);

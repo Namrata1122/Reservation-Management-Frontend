@@ -1,5 +1,9 @@
 <div class="user-dashboard-container">
-    <div class="my-reservations-list-container">
+    <div class="user-details m-2 p-2">
+        <h2>Welcome {{userName}}</h2>
+        <p><i class="bi bi-envelope"></i> {{userEmail}}</p>
+    </div>
+    <div class="my-reservations-list-container m-2 p-2">
         <h2>Make a Reservation Here!</h2>
         <div class="resources-container">
             <div class="visible-resources d-flex align-items-center">
@@ -25,7 +29,7 @@
             </div>
             </div>
     </div>
-    <div class="create-new-reservation-container">
+    <div class="My-reservations-list-container m-2 p-2">
         <h2>My Reservations</h2>
         <app-my-reservations-list></app-my-reservations-list>
     </div>

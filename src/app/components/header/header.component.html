@@ -12,9 +12,10 @@
             <li class="nav-item" *ngIf="!isLoggedIn"><a class="nav-link" routerLink="/registration">REGISTER</a></li>
             
             <li class="nav-item" *ngIf="isLoggedIn"><a class="nav-link" (click)="Logout()">LOGOUT</a></li>
-            <li class="nav-item" *ngIf="isLoggedIn"><a class="nav-link" routerLink="/userdashboard">PROFILE</a></li>
             
             <li class="nav-item" *ngIf="isAdmin"><a class="nav-link" routerLink="/admindashboard">ADMIN DASHBOARD</a></li>
+            <li class="nav-item" *ngIf="isLoggedIn"><a class="nav-link" routerLink="/userdashboard"><i
+                        class="bi bi-person-circle display-6"></i></a></li>
         </ul>
     </div>
 </div>

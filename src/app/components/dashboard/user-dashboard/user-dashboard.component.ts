@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 import { ResourcesService } from 'src/app/Services/resources.service';
 
 @Component({
@@ -16,6 +17,11 @@ export class UserDashboardComponent {
     showCreateReservation : boolean = false;
   
     resourcesService:ResourcesService = inject(ResourcesService);
+    authService: AuthService = inject(AuthService);
+
+    user:any = this.authService.getUserFromToken();
+    userName:string =this.user.username;
+    userEmail:string = this.user.email;
   
     ngOnInit(){
       this.resourcesService.GetResourcesList().subscribe(data=>{
