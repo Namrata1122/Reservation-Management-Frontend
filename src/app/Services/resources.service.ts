@@ -13,7 +13,8 @@ export class ResourcesService{
         return this.http.get(this.apiUrl);
     }
 
-    GetAResource(){
-        return this.http.get(this.apiUrl+'/:id');
+    // admin-crud operations
+    CreateResource(data:any):Observable<any>{
+        return this.http.post(this.apiUrl,data);
     }
 }

@@ -1,25 +1,26 @@
 <div class="create-resource-container m-4 p-2">
     <h2>Create/Add a new resource here!</h2>
-    <form class="form">
+    <form class="form" #resourceForm="ngForm" (ngSubmit)="OnCreateResourceClicked(resourceForm)">
         <div class="resource-name">
             <label>Resource Name</label>
-            <input type="text" class="form-control" placeholder="Add Resource Name">
+            <input type="text" class="form-control" placeholder="Add Resource Name" required name="name" ngModel>
         </div>
         <div class="resource-name">
             <label>Resource Description</label>
-            <input type="text" class="form-control" placeholder="Add Resource Name">
+            <input type="text" class="form-control" placeholder="Add Resource Name" required name="description" ngModel>
         </div>
         <div class="resource-name">
             <label>Capacity</label>
-            <input type="text" class="form-control" placeholder="Add Resource Name">
+            <input type="text" class="form-control" placeholder="Add Resource Name" required name="capacity" ngModel>
         </div>
         <div class="resource-name">
             <label>Location</label>
-            <input type="text" class="form-control" placeholder="Add Resource Name">
+            <input type="text" class="form-control" placeholder="Add Resource Name" required name="location" ngModel>
         </div>
         <div class="resource-name">
-            <label>Updated At</label>
-            <input type="text" class="form-control" placeholder="Add Resource Name">
+            <label>Price</label>
+            <input type="text" class="form-control" placeholder="Add the price" required name="price" ngModel>
         </div>
+        <button type="submit" class="btn btn-dark m-2 p-2 d-block w-100" [disabled]="resourceForm.invalid">Create Resource</button>
     </form>
 </div>

@@ -11,10 +11,13 @@ export class DashboardService{
     authService:AuthService = inject(AuthService);
 
     private apiUrl = 'http://localhost:3000/reservations';
+
+    // admin-dashboard
     GetAllReservations():Observable<any>{
         return this.http.get(this.apiUrl);
     }
 
+    // user-dashboard
     GetMyReservations():Observable<any>{
         return this.http.get(this.apiUrl+'/my');
     }
