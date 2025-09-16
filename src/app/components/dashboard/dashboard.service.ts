@@ -16,10 +16,6 @@ export class DashboardService{
     }
 
     GetMyReservations():Observable<any>{
-        const token = this.authService.getToken();
-        const headers = new HttpHeaders({
-            'Authorization': `Bearer ${token}`
-        });
-        return this.http.get(this.apiUrl+'/my',{headers});
+        return this.http.get(this.apiUrl+'/my');
     }
 }

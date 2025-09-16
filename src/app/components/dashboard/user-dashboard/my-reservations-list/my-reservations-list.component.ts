@@ -15,7 +15,6 @@ export class MyReservationsListComponent implements OnInit{
     this.dashboardService.GetMyReservations().subscribe(data=>{
       console.log(data);
       this.myReservations = data.reservation;
-      console.log(this.myReservations)
     })
   }
 }
