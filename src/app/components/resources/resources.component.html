@@ -8,17 +8,53 @@
                         <h5 class="card-title">{{resource.name}}</h5>
                         <p class="card-text">{{resource.description}}</p>
                         <p class="card-text">Capacity : {{resource.capacity}}</p>
+                        <p class="card-text">Price : {{resource.price}}</p>
                         <a href="#" class="link-info"><i class="bi bi-geo-alt m-2"></i>{{resource.location}}</a><br>
 
                         <a href="#" class="btn btn-primary" (click)="OnReserveClicked($event)" *ngIf="isUser">Reserve</a>
 
-                        <a routerLink="#" class="btn link-success m-2 p-2" *ngIf="isAdmin"><i class="bi bi-pencil-square"></i>Update</a>
+                        <a routerLink="#" class="btn link-success m-2 p-2" *ngIf="isAdmin" (click)="OnUpdateClicked(resource._id)"><i class="bi bi-pencil-square"></i>Update</a>
                         <a routerLink="#" class="btn link-danger m-2 p-2" *ngIf="isAdmin" (click)="OnDeleteClicked(resource._id)"><i class="bi bi-trash3"></i>Delete</a>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
+
+    <div class="create-resource-container m-4 p-2" *ngIf="updatingResources">
+        <h2>Update Resource</h2>
+        <form class="form" #UpdateResourceForm="ngForm">
+            <div class="input-group mb-3 mt-3">
+                <input type="file" class="form-control" id="inputGroupFile02" name="img" ngModel>
+                <label class="input-group-text" for="inputGroupFile02">Upload Resource Image</label>
+            </div>
+            <div class="resource-name">
+                <label>Resource Name*</label>
+                <input type="text" class="form-control" placeholder="Add Resource Name" required name="name" [(ngModel)]="selectedResource.name">
+            </div>
+            <div class="resource-name">
+                <label>Resource Description*</label>
+                <input type="text" class="form-control" placeholder="Add Resource Name" required name="description" [(ngModel)]="selectedResource.description">
+            </div>
+            <div class="resource-name">
+                <label>Capacity*</label>
+                <input type="text" class="form-control" placeholder="Add Resource Name" required name="capacity" [(ngModel)]="selectedResource.capacity">
+            </div>
+            <div class="resource-name">
+                <label>Location*</label>
+                <input type="text" class="form-control" placeholder="Add Resource Name" required name="location" [(ngModel)]="selectedResource.location">
+            </div>
+            <div class="resource-name">
+                <label>Price*</label>
+                <input type="text" class="form-control" placeholder="Add the price" required name="price" [(ngModel)]="selectedResource.price">
+            </div>
+            <button type="submit" class="btn btn-dark m-2 p-2 d-block w-100" 
+                    [disabled]="UpdateResourceForm.invalid"
+                    (click)="OnUpdateResourceClicked(UpdateResourceForm)">
+                Update Resource</button>
+        </form>
+    </div>
+    
 
     <ng-template *ngIf="resources.length === 0">
         <p>No Resources Availabale!</p>

@@ -21,4 +21,8 @@ export class ResourcesService{
     DeleteResource(id:string):Observable<any>{
         return this.http.delete(`${this.apiUrl}/${id}`);
     }
+
+    UpdateResource(id:string,data:any):Observable<any>{
+        return this.http.put(`${this.apiUrl}/${id}`,data);
+    }
 }
