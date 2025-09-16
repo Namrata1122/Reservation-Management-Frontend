@@ -15,12 +15,24 @@ export class ResourcesComponent implements OnInit{
   authService:AuthService = inject(AuthService);
   private token:any = null;
 
+  private user:any;
+  isAdmin :boolean = false;
+  isUser : boolean = false;
+
   router:Router = inject(Router)
 
   ngOnInit(): void {
     this.resourcesService.GetResourcesList().subscribe((response)=>{
       this.resources = response.resources;
+      console.log(this.resources)
     })
+
+    this.user = this.authService.getUserFromToken();
+    if(this.user.role === 'admin'){
+      this.isAdmin = true;
+    }else{
+      this.isUser = true;
+    }
   }
   
   OnReserveClicked(event:Event){
@@ -31,5 +43,12 @@ export class ResourcesComponent implements OnInit{
     }else{ 
       this.router.navigate(['/login']);
     }
+  }
+  OnDeleteClicked(resourceId: string){
+    this.resourcesService.DeleteResource(resourceId).subscribe(response=>{
+      console.log(response);
+      alert(`Deleted ${response.resource.name}`)
+      this.resources = this.resources.filter(resource => resource._id !==resourceId);
+    })
   }
 }

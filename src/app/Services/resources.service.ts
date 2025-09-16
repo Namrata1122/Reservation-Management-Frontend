@@ -17,4 +17,8 @@ export class ResourcesService{
     CreateResource(data:any):Observable<any>{
         return this.http.post(this.apiUrl,data);
     }
+
+    DeleteResource(id:string):Observable<any>{
+        return this.http.delete(`${this.apiUrl}/${id}`);
+    }
 }

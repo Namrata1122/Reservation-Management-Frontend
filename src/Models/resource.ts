@@ -4,6 +4,7 @@ export class Resource{
         description :String,
         location:String,
         capacity: Number,
-        price:Number
+        price:Number,
+        img?:File|null
     ){}
 }

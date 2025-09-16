@@ -41,7 +41,7 @@ import { CreateReservationComponent } from './components/dashboard/user-dashboar
     UserReservationsListComponent,
     CreateResourceComponent,
     DeleteMyReservationComponent,
-    CreateReservationComponent
+    CreateReservationComponent,
   ],
   imports: [
     BrowserModule,
