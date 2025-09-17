@@ -14,7 +14,9 @@ export class UserReservationsListComponent implements OnInit{
   ngOnInit(){
     this.dashboardService.GetAllReservations().subscribe((data)=>{
       this.reservations = data.reservation;
+      console.log(this.reservations)
       this.reservations = this.reservations.filter(reservation => reservation.resource !== null);
+      console.log(this.reservations)
     })
   }
 }

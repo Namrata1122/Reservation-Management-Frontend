@@ -21,4 +21,8 @@ export class DashboardService{
     GetMyReservations():Observable<any>{
         return this.http.get(this.apiUrl+'/my');
     }
+
+    CreateReservation(data:any):Observable<any>{
+        return this.http.post(this.apiUrl,data);
+    }
 }

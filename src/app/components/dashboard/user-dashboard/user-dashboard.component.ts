@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ResourcesService } from 'src/app/Services/resources.service';
+import { UserDashboardService } from './user-dashboard.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -10,7 +11,7 @@ import { ResourcesService } from 'src/app/Services/resources.service';
 export class UserDashboardComponent {
   resources:any[] = [];
     currentIndex = 0;
-    itemsPerView = 3;
+    itemsPerView = 4;
     visibleResources:any[]=[];
 
     selectedResource : any;

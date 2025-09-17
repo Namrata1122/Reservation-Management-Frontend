@@ -17,7 +17,10 @@
                             <p class="card-text">{{resource.description}}</p>
                             <p>Capacity: {{resource.capacity}}</p>
                             <button class="btn btn-primary" (click)="OnReserveClicked(resource)">Reserve</button>
-                            <app-create-reservation [resource]="selectedResource"></app-create-reservation>
+                            <app-create-reservation 
+                                    [resource]="selectedResource"
+                                    *ngIf="showCreateReservation && selectedResource === resource"
+                            ></app-create-reservation>
                         </div>
                     </div>
                 </div>

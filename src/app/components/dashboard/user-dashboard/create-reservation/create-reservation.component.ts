@@ -1,6 +1,8 @@
 import { Component, EventEmitter, inject, Input, Output, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth.service';
+import { DashboardService } from '../../dashboard.service';
+import { UserDashboardService } from '../user-dashboard.service';
 
 @Component({
   selector: 'app-create-reservation',
@@ -10,19 +12,21 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class CreateReservationComponent {
   @Input() resource:any;
 
-  @ViewChild('reservationform') reservationForm: NgForm;
+  makeReservationForm: NgForm;
 
   @Output()
   closeForm:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   reservationDetails ={
-    userId:'',
-    resourceId:'',
+    user:'',
+    resource:'',
     startTime:'',
     endTime:''
   }
 
   authService:AuthService = inject(AuthService);
+  dashboardService:DashboardService = inject(DashboardService);
+  userDashboardService: UserDashboardService = inject(UserDashboardService);
 
   userid = (this.authService.getUserFromToken()).id;
 
@@ -30,11 +34,25 @@ export class CreateReservationComponent {
     this.closeForm.emit(false);
   }
 
-  OnFormSubmitted(reservationform:NgForm){
-    
-  }
-
-  ngAfterViewInit(){
-    this.reservationForm.form.patchValue(this.resource);
+  OnFormSubmitted(form:NgForm){
+    this.makeReservationForm = form;
+    this.reservationDetails={
+      user:this.userid,
+      resource:this.resource._id,
+      startTime:this.makeReservationForm.value.startTime,
+      endTime:this.makeReservationForm.value.endTime
+    }
+    this.dashboardService.CreateReservation(this.reservationDetails).subscribe({
+      next:(response)=>{
+        alert(`You have reserved ${this.resource.name} 
+          from ${this.reservationDetails.startTime} to ${this.reservationDetails.endTime}`);
+        this.userDashboardService.callLoadResource();
+        console.log(response);
+      },
+      error:(err)=>{
+        alert(`Could not make the reservation!`);
+        console.log(err);
+      }
+    })
   }
 }
