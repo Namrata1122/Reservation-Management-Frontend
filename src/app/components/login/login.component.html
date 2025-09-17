@@ -1,5 +1,8 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
-<div class="login-container border shadow-sm m-2 rounded p-3 w-50">
+<div class="login-container d-flex flex-column justify-content-center align-items-center vh-100">
+<div class="border shadow-sm m-2 rounded p-3 w-50 bg-body-tertiary">
+    <div class="login-icon d-flex justify-content-center display-1">
+        <i class="bi bi-person"></i>
+    </div>
     <h2 class="d-flex justify-content-center m-2">Login Here!</h2>
     <div class="auth-form">
         <form #loginForm="ngForm" (ngSubmit)="OnFormSubmitted(loginForm)">
@@ -33,5 +36,8 @@
             </p>
         </form>
     </div>
+</div>
+<div class="m-4 p-4 text-light">
+    <p>@Nimmi</p>
 </div>
 </div>

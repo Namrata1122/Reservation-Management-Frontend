@@ -1,6 +1,9 @@
-<div class="registraion-form-step-one-container d-flex justify-content-center align-items-center m-2 p-2 vh-100">
+<div class="registraion-form-step-one-container d-flex justify-content-center align-items-center m-2 p-2 vh-90">
 <div class="border shadow-sm p-3 mb-5 bg-body-tertiary rounded w-50 d-flex justify-content-center">
     <form #stepTwoForm="ngForm">
+        <div class="register-icon display-1 d-flex justify-content-center">
+            <i class="bi bi-person-plus"></i>
+        </div>
         <div class="input-box">
             <label for="uname">*Username</label>
             <input class="form-control" type="text" placeholder="Username" id="uname" minlength="8" name="username" [(ngModel)]="model.username" required #uname="ngModel">
