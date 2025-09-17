@@ -10,19 +10,22 @@
             <div class="form-input" *ngIf="loginUsingEmail === false">
                 <label for="username">Username</label>
                 <input type="text" class="form-control m-1 p-1" placeholder="Enter your Username" 
-                name="username" ngModel required>
+                name="username" #uname="ngModel" ngModel required>
+                <small class="text-danger" *ngIf="uname.touched && uname.invalid">*Username is required!</small>
             </div>
             <div class="form-input" *ngIf="loginUsingUsername === false">
                 <label for="email-address">Email</label>
                 <input type="email" class="form-control m-1 p-1" placeholder="Enter your Email" 
-                name="email" ngModel required email>
+                name="email" #Email="ngModel" ngModel required email>
+                <small class="text-danger" *ngIf="Email.touched && Email.invalid">*Email is required!</small>
             </div>
             <div class="form-input">
                 <label for="password">Password</label>
                 <input type="password" class="form-control m-1 p-1" placeholder="Enter your password" 
-                name="password" ngModel required minlength="8">
+                name="password" ngModel required #pass="ngModel">
+                <small class="text-danger" *ngIf="pass.invalid && pass.touched">*Please Enter Your Password!</small>
             </div>
-            <button type="submit" class="btn btn-dark mx-auto my-2 d-block w-100">
+            <button type="submit" class="btn btn-dark mx-auto my-2 d-block w-100" [disabled]="loginForm.invalid">
                 Login
             </button>
             <p>Do not have an account yet?

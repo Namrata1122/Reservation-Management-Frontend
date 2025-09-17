@@ -1,31 +1,35 @@
-<div class="registraion-form-step-one-container border shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+<div class="registraion-form-step-one-container d-flex justify-content-center align-items-center m-2 p-2 vh-100">
+<div class="border shadow-sm p-3 mb-5 bg-body-tertiary rounded w-50 d-flex justify-content-center">
     <form #stepTwoForm="ngForm">
         <div class="input-box">
-            <label for="uname">Username</label>
-            <input class="form-control" type="text" placeholder="Username" id="uname" minlength="8" name="username" [(ngModel)]="model.username" required>
+            <label for="uname">*Username</label>
+            <input class="form-control" type="text" placeholder="Username" id="uname" minlength="8" name="username" [(ngModel)]="model.username" required #uname="ngModel">
+            <small class="text-danger" *ngIf="uname.touched && uname.invalid">*Username is Required!</small>
         </div>
-        <div class="input-box d-inline-block">
-            <label for="pswd">Password</label>
-            <input class="form-control" type="password" placeholder="Enter your Password" id="pswd" minlength="8" name="password" [(ngModel)]="model.password" required>
+        <div class="input-box">
+            <label for="pswd">*Password</label>
+            <input class="form-control" type="password" placeholder="Enter your Password" id="pswd" minlength="8" name="password" [(ngModel)]="model.password" required #pass="ngModel">
+            <small class="text-danger" *ngIf="pass.touched && pass.invalid">*Your Password should be at least 8 characters! Please set Your Password!</small>
         </div>
-        <div class="input-box d-inline-block">
+        <div class="input-box">
             <label for="cnfpswd">Confirm Password</label>
             <input class="form-control" type="password" placeholder="Confirm your Password" id="cnfpswd" minlength="8" name="confirmpassword" [(ngModel)]="confirmPassword" required>
         </div>
-        <div *ngIf="model.password && confirmPassword && model.password!==confirmPassword" class="text-danger">
-            Passwords do not match!
-        </div>
+        <small *ngIf="model.password && confirmPassword && model.password!==confirmPassword" class="text-danger">
+            *Passwords do not match!
+        </small>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions.</label>
         </div>
 
-        <div class="previous-step d-flex justify-content-center mt-4" (click)="prev.emit()">
-            <i class="bi bi-arrow-left-circle-fill display-3 text-primary"></i>
+        <div class="previous-step d-flex justify-content-center mt-4 mb-4" (click)="prev.emit()">
+            <i class="bi bi-arrow-left-circle-fill display-6 text-primary"></i>
         </div>
         <button type="submit" class="btn btn-dark mx-auto my-2 d-block w-100" (click)="OnFormSubmitted.emit()">Register</button>
         <p>Already have an account?
-            <button class="btn btn-primary " type="button" routerLink="/login">Login Here</button>
+            <a routerLink="/login">Login Here!</a>
         </p>
     </form>
+</div>
 </div>
