@@ -1,8 +1,7 @@
 <div class="reservations-container m-2 p-2">
     <h6 *ngIf="myReservations.length === 0">You have not yet made a reservation!</h6>
     <div class="resource-list" *ngIf="myReservations.length >0">
-        <ul
-            class="list-group list-group-horizontal list-unstyled d-flex flex-wrap flex-grow-1 flex-shrink-1 m-2 p-2 w-auto">
+        <ul class="list-group list-group-horizontal list-unstyled d-flex flex-wrap flex-grow-1 flex-shrink-1 m-2 p-2 w-auto">
             <li class="list-group-items m-2 p-2" *ngFor="let reservation of myReservations">
                 <div class="card" style="width:18rem;">
                     <img src="" class="card-img-top" alt="{{reservation.name}}">
@@ -16,9 +15,11 @@
                             <a href="#"><i class="bi bi-geo-alt"></i>{{reservation.location}}</a>
                         </p>
                         <br>
-                        <a href="#" class="btn btn-dark m-2">Cancel Reservation</a>
+                        <button class="btn btn-dark m-2" (click)="OnCancelClicked(reservation)">Reschedule Reservation</button>
+                        <button class="btn btn-dark m-2" (click)="OnCancelClicked(reservation)">Cancel Reservation</button>
+                        <app-delete-my-reservation  *ngIf="showcancelreservationform && selectedReservation === reservation"></app-delete-my-reservation>
                     </div>
                 </div>
             </li>
         </ul>
-    </div>
+</div>

@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 })
 export class MyReservationsListComponent implements OnInit, OnDestroy{
   myReservations:any[] = [];
+  showcancelreservationform:boolean = false;
+  selectedReservation:any;
 
   dashboardService:DashboardService = inject(DashboardService);
   userDashboardService:UserDashboardService = inject(UserDashboardService);
@@ -18,7 +20,7 @@ export class MyReservationsListComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.loadReservations();
-    this.subscription = this.userDashboardService.callLoadResource$.subscribe(()=>{
+    this.subscription = this.userDashboardService.callLoadReservations$.subscribe(()=>{
       this.loadReservations();
     })
     console.log(this.subscription);
@@ -29,6 +31,12 @@ export class MyReservationsListComponent implements OnInit, OnDestroy{
       console.log(data);
       this.myReservations = data.reservation;
     })
+  }
+
+  OnCancelClicked(reservation:any){
+    this.userDashboardService.setReservationId(reservation._id);
+    this.selectedReservation = reservation;
+    this.showcancelreservationform=true;
   }
 
   ngOnDestroy(){

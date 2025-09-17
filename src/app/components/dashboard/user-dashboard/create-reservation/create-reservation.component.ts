@@ -46,7 +46,7 @@ export class CreateReservationComponent {
       next:(response)=>{
         alert(`You have reserved ${this.resource.name} 
           from ${this.reservationDetails.startTime} to ${this.reservationDetails.endTime}`);
-        this.userDashboardService.callLoadResource();
+        this.userDashboardService.callLoadReservations();
         console.log(response);
       },
       error:(err)=>{

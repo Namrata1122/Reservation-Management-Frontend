@@ -1,15 +1,21 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserDashboardService{
-    private loadResourcesSubject = new Subject<void>();
+    private loadReservationsSubject = new Subject<void>();
+    callLoadReservations$ = this.loadReservationsSubject.asObservable();
 
-    callLoadResource$ = this.loadResourcesSubject.asObservable();
+    private selectedReservationId = new BehaviorSubject<string|null>(null);
+    setReservationId$ = this.selectedReservationId.asObservable();
 
-    callLoadResource(){
-        this.loadResourcesSubject.next();
+    callLoadReservations(){
+        this.loadReservationsSubject.next();
+    }
+
+    setReservationId(Id:any){
+        this.selectedReservationId.next(Id);
     }
 }
