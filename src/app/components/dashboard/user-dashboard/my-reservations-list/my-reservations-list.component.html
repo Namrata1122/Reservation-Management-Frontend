@@ -15,11 +15,33 @@
                             <a href="#"><i class="bi bi-geo-alt"></i>{{reservation.location}}</a>
                         </p>
                         <br>
-                        <button class="btn btn-dark m-2" (click)="OnCancelClicked(reservation)">Reschedule Reservation</button>
+                        <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#updateReservationForm">Reschedule Reservation</button>
                         <button class="btn btn-dark m-2" (click)="OnCancelClicked(reservation)">Cancel Reservation</button>
                         <app-delete-my-reservation  *ngIf="showcancelreservationform && selectedReservation === reservation"></app-delete-my-reservation>
                     </div>
                 </div>
             </li>
         </ul>
+</div>
+
+<div class="modal fade" id="updateReservationForm" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form m-auto">
+                <div class="modal-header m-2 p-2">
+                    <h5 class="modal-title m-2 p-2" id="formmodalLabel">Reschedule Here!</h5>
+                    <button type="button" class="btn btn-close m-2 p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="starttime m-2 p-2">
+                    <label>StartTime</label>
+                    <input type="date" class="form-control" placeholder="reschedule arrival" name="startTime" ngModel>
+                </div>
+                <div class="endtime m-2 p-2">
+                    <label>EndTime</label>
+                    <input type="date" class="form-control" placeholder="reschedule arrival" name="endTime" ngModel>
+                </div>
+                <button type="submit" class="btn btn-dark m-2 p-2" data-bs-dismiss="modal" (click)="OnRescheduleClicked()">Reschedule</button>
+            </form>
+        </div>
+    </div>
 </div>

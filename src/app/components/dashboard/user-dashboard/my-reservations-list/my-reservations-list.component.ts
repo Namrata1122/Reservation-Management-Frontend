@@ -23,12 +23,10 @@ export class MyReservationsListComponent implements OnInit, OnDestroy{
     this.subscription = this.userDashboardService.callLoadReservations$.subscribe(()=>{
       this.loadReservations();
     })
-    console.log(this.subscription);
   }
 
   loadReservations(){
     this.dashboardService.GetMyReservations().subscribe(data=>{
-      console.log(data);
       this.myReservations = data.reservation;
     })
   }
@@ -37,6 +35,12 @@ export class MyReservationsListComponent implements OnInit, OnDestroy{
     this.userDashboardService.setReservationId(reservation._id);
     this.selectedReservation = reservation;
     this.showcancelreservationform=true;
+  }
+
+  
+
+  OnRescheduleClicked(){
+    
   }
 
   ngOnDestroy(){
