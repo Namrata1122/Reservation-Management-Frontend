@@ -3,7 +3,7 @@
     <div class="login-icon d-flex justify-content-center display-1">
         <i class="bi bi-person"></i>
     </div>
-    <h2 class="d-flex justify-content-center m-2">Login Here!</h2>
+    <h2 class="Login-header d-flex justify-content-center m-2">Login Here!</h2>
     <div class="auth-form">
         <form #loginForm="ngForm" (ngSubmit)="OnFormSubmitted(loginForm)">
             <button class="btn btn-secondary" *ngIf="loginUsingEmail" (click)="LoginUsingUsername()">
